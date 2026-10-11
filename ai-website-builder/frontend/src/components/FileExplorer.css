@@ -1,0 +1,68 @@
+.file-explorer {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  height: 100%;
+  border: 1px solid var(--ink-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--ink-raised);
+}
+.file-explorer-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  border: 1px dashed var(--ink-line);
+  border-radius: 18px;
+}
+
+.file-tree {
+  border-right: 1px solid var(--ink-line);
+  overflow-y: auto;
+  padding: 10px 0;
+}
+.tree-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--paper-dim);
+  font-size: 0.86rem;
+  padding: 6px 10px;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.tree-row:hover { background: rgba(255, 255, 255, 0.05); color: var(--paper); }
+.tree-row.active { background: var(--accent-soft); color: var(--paper); }
+.tree-caret { display: inline-block; transition: transform var(--dur-fast) var(--ease); color: var(--muted); }
+.tree-caret.open { transform: rotate(90deg); }
+
+.file-code { display: flex; flex-direction: column; overflow: hidden; }
+.file-code-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ink-line);
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+.file-code pre.hljs {
+  margin: 0;
+  padding: 18px 20px;
+  overflow: auto;
+  height: 100%;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  background: transparent !important;
+}
+.file-code-empty {
+  margin: auto;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-style: italic;
+}

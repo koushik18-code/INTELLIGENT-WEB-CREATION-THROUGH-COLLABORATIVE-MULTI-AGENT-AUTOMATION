@@ -1,0 +1,25 @@
+:root {
+  /* Restrained, near-monochrome palette with one quiet accent — deliberately
+     not the navy/gold system used elsewhere, so this reads as its own
+     premium product rather than a reused theme. */
+  --ink: #0B0B0D;
+  --ink-raised: #141417;
+  --ink-line: #232327;
+  --paper: #F4F1EA;
+  --paper-dim: #C9C6BD;
+  --muted: #8B8B93;
+  --accent: #C98A4B;
+  --accent-soft: rgba(201, 138, 75, 0.18);
+  --danger: #D9614F;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+
+  --container: 1180px;
+}

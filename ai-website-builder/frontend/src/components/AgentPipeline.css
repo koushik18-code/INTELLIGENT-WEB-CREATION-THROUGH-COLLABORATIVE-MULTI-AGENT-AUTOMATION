@@ -1,0 +1,83 @@
+.pipeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-left: 6px;
+}
+
+.pipeline-spine {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--ink-line);
+}
+
+.pipeline-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-left: 0;
+}
+
+.pipeline-dot {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 1.5px solid var(--ink-line);
+  transition: border-color var(--dur-base) var(--ease), background var(--dur-base) var(--ease),
+              box-shadow var(--dur-base) var(--ease);
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.pipeline-copy { display: flex; flex-direction: column; gap: 2px; }
+.pipeline-label { font-size: 0.98rem; font-weight: 500; color: var(--paper-dim); transition: color var(--dur-base) var(--ease); }
+.pipeline-state { font-size: 0.78rem; color: var(--muted); }
+
+.pipeline-node.state-running .pipeline-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-soft);
+  animation: pipelinePulse 1.6s var(--ease) infinite;
+}
+.pipeline-node.state-running .pipeline-label { color: var(--paper); }
+
+.pipeline-node.state-done .pipeline-dot {
+  border-color: var(--paper);
+  background: var(--paper);
+}
+.pipeline-node.state-done .pipeline-label { color: var(--paper); }
+
+.pipeline-node.state-failed .pipeline-dot {
+  border-color: var(--danger);
+  background: var(--danger);
+}
+.pipeline-node.state-failed .pipeline-label { color: var(--danger); }
+
+@keyframes pipelinePulse {
+  0%, 100% { box-shadow: 0 0 0 5px var(--accent-soft); }
+  50% { box-shadow: 0 0 0 9px transparent; }
+}
+
+.pipeline-horizontal {
+  flex-direction: row;
+  gap: 0;
+  padding-left: 0;
+}
+.pipeline-horizontal .pipeline-spine {
+  left: 8px; right: 8px; top: 15px; bottom: auto; width: auto; height: 1px;
+}
+.pipeline-horizontal .pipeline-node {
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+.pipeline-horizontal .pipeline-dot { margin-left: 0; }
